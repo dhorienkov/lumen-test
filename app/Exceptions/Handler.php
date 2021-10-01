@@ -6,7 +6,9 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -49,6 +51,30 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        // This will replace our 404 response with
+        // a JSON response.
+        if ($exception instanceof ResourceNotFoundException) {
+            return response()->json([
+                'error' => 'Resource not found'
+            ], 404);
+        }
+
+        // This will replace our 404 response with
+        // a JSON response.
+        if ($exception instanceof BadRequestException) {
+            return response()->json([
+                'error' => 'Bad Request'
+            ], 400);
+        }
+
+        // This will replace our 500 response with
+        // a JSON response.
+        if ($exception instanceof \RuntimeException) {
+            return response()->json([
+                'error' => 'Internal Server Error'
+            ], 500);
+        }
+
         return parent::render($request, $exception);
     }
 }
