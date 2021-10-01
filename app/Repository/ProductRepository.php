@@ -8,6 +8,12 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\Persistence\ObjectRepository;
 use Monolog\Logger;
 
+/**
+ * Class ProductRepository
+ * Repository to query products
+ *
+ * @package App\Repository
+ */
 class ProductRepository
 {
     /**

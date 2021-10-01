@@ -107,6 +107,9 @@ class Product
         return $this->description;
     }
 
+    /**
+     * @return Stock
+     */
     public function getStock()
     {
         return $this->stock;
@@ -137,6 +140,10 @@ class Product
     }
 
 
+    /**
+     * @return $this
+     * @throws \Exception
+     */
     public function setDeleted()
     {
         $this->deletedAt = new \DateTime('now');

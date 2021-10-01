@@ -3,11 +3,16 @@
 
 namespace App\Console\Commands;
 
-use Doctrine\DBAL\Connection;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class StockUploadCommand
+ *
+ * Command to Upload Stock from file
+ * @package App\Console\Commands
+ */
 class StockUploadCommand extends Command
 {
     /**

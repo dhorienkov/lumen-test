@@ -1,4 +1,7 @@
 #General Information
+This application is based on Laravel\Lumen. 
+As ORM is used Doctrine, as it more flexible and written with using best practises and patterns
+
 
 # How To run
 
@@ -12,6 +15,6 @@ docker-compose up
 php artisan doctrine:migrations:migrate
 
 ## Bulk upload commands
-php artisan stock:upload --filepath <filepath>
+php artisan stock:upload --filepath <filepath> //filepath option is not required
 
-php artisan product:upload --filepath <filepath>
+php artisan product:upload --filepath <filepath> //filepath option is not required

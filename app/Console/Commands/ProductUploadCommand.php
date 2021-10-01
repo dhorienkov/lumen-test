@@ -7,6 +7,12 @@ use App\Entities\Product;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 
+/**
+ * Class ProductUploadCommand
+ * @package App\Console\Commands
+ *
+ * Command to Upload Products from file
+ */
 class ProductUploadCommand extends Command
 {
     /**
